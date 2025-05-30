@@ -1,20 +1,25 @@
 import EventCard from "../components/EventCard";
 import Footer from "../components/Footer";
 
+
+//date fetched from superbase
 const events = [
   {
     title: "Web-3 Conference",
     date: "Fri, May 09 2025, 12:00pm",
-    location: "6 Southern Street, New York",
+    location: "Virtual",
     price: "FREE",
     image: "src/assets/event flier/flier 1.webp",
+    id: 1,
   },
   {
     title: "Creative Writing Workshop",
     date: "Sat, Jun 01 2025, 10:00am",
-    location: "21 Ink Lane, London",
+    location: "6 Southern Street, New York",
     price: "FREE",
     image: "src/assets/event flier/flier 2.webp",
+    id: 2,
+
   },
   {
     title: "Photography Walk & Talk",
@@ -22,6 +27,7 @@ const events = [
     location: "Lagos Marina, Lagos",
     price: "FREE",
     image: "src/assets/event flier/flier 3.png",
+    id: 3,
   },
   {
     title: "Startup Pitch Night",
@@ -29,6 +35,7 @@ const events = [
     location: "Innovation Hub, Berlin",
     price: "FREE",
     image: "src/assets/event flier/flier 4.jpg",
+    id: 4,
   },
   {
     title: "Art & Chill Hangout",
@@ -36,6 +43,7 @@ const events = [
     location: "Zen Garden, Nairobi",
     price: "FREE",
     image: "src/assets/event flier/flier 5.jpg",
+    id: 5,
   },
   {
     title: "Women in Tech Meetup",
@@ -43,13 +51,15 @@ const events = [
     location: "SheCodes Space, Accra",
     price: "FREE",
     image: "src/assets/event flier/flier 6.jpg",
+    id: 6,
   },
   {
     title: "Film Screening: Indie Shorts",
     date: "Mon, May 27 2025, 7:00pm",
-    location: "Culture House, Toronto",
+    location: "Virtual",
     price: "FREE",
     image: "https://via.placeholder.com/400x300?text=Film+Screening",
+    id: 7, 
   },
   {
     title: "Freelancers Networking Brunch",
@@ -57,8 +67,11 @@ const events = [
     location: "Freelance Hub, Cape Town",
     price: "FREE",
     image: "src/assets/event flier/flier 8.webp",
+    id: 8,
   },
 ];
+
+
 
 function Explore() {
   return (
