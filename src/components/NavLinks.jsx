@@ -26,7 +26,7 @@ function NavLinks() {
         >
           Explore
         </NavLink>
-        <NavLink
+        <NavLink to='/CreateEvent'
           className="transition-colors duration-200
       hover:text-cyan-400
       active:text-gray-700 active:bg-cyan-100 active:rounded-md active:font-semibold
@@ -41,7 +41,7 @@ function NavLinks() {
           Account
         </NavLink>
       </div>
-      {/* )} */}
+      
     </>
   );
 }

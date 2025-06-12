@@ -6,7 +6,7 @@ function Header() {
     <header className="bg-transparent transition-all duration-700 ease-in-out w-full
     ">
       <nav className=" flex justify-between relative h-16 item-center py-4 px-6 lg:px-16 lg:py-6">
-        <Logo/>
+        <Logo path='/'/>
         <NavLinks/>
       </nav>
     </header>
