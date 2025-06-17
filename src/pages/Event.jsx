@@ -1,7 +1,7 @@
 import { BsTicketPerforatedFill } from "react-icons/bs";
 import { FaLocationDot, FaRegClock } from "react-icons/fa6";
 import { Link, useParams } from "react-router-dom";
-import EventTicket from "./EventTicket";
+import TicketForm from "./TicketForm";
 import ButtonPrimary from "../components/ButtonPrimary";
 
 function Event() {
@@ -39,7 +39,7 @@ function Event() {
                 <span className="ml-3">FREE</span>
               </p>
               {/* <Link to> */}
-                <ButtonPrimary>Get Ticket</ButtonPrimary>
+              <ButtonPrimary>Get Ticket</ButtonPrimary>
               {/* </Link> */}
             </div>
           </div>
@@ -59,7 +59,7 @@ function Event() {
       </div>
 
       {/* //overlay form */}
-      <EventTicket />
+      <TicketForm />
     </>
   );
 }

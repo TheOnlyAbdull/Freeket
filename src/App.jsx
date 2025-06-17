@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AppLayout from "./ui/AppLayout";
-import AuthorizedLayout from "./ui/AuthorizedLayout"
+import AuthorizedLayout from "./ui/AuthorizedLayout";
 import HomePage from "./pages/HomePage";
 import Explore from "./pages/Explore";
 import Booking from "./pages/Booking";
@@ -11,7 +11,8 @@ import CheckIn from "./pages/CheckIn";
 import PageNotFound from "./pages/PageNotFound";
 import Event from "./pages/Event";
 import ManageEvents from "./pages/ManageEvents";
-import EventTicket from "./pages/EventTicket";
+import EventTicket from "./pages/TicketForm";
+import EventList from "./pages/EventList";
 
 function App() {
   const boy = 23;
@@ -28,11 +29,13 @@ function App() {
         </Route>
 
         {/* // Protected Routes */}
-        <Route element={<AuthorizedLayout/>}>
+        <Route element={<AuthorizedLayout />}>
           <Route path="CreateEvent" element={<CreateEvent />} />
-          {/* <Route path="Analytics" element={<Analytics />} /> */}
           <Route path="CheckIn" element={<CheckIn />} />
-          <Route path="ManageEvents" element={<ManageEvents />} />
+          <Route path="ManageEvents" element={<ManageEvents />}>
+            <Route index  element={<EventList/>}/>
+            <Route path="/ManageEvents/Analytics" element={<Analytics />} />
+          </Route>
           <Route path="Booking" element={<Booking />} />
         </Route>
 

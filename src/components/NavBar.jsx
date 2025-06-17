@@ -6,11 +6,11 @@ import { useState } from "react";
 import Logo from "../ui/Logo";
 
 function NavBar() {
-  const [showNav, setShowNav] = useState(false);
+  const [showNav, setShowNav] = useState(true);
 
   return (
     <nav>
-      <div className="flex justify-between px-8 py-4 shadow-md">
+      <div className="flex justify-between px-4 py-4 shadow-md">
         <Logo path="/CreateEvent" />
         <div className="flex items-center gap-4 ">
           <p
@@ -23,7 +23,7 @@ function NavBar() {
             <IoMdAdd />
           </p>
           <p className="border rounded-full border-gray-500 px-1 py-0.5 flex gap-1 items-center">
-            <span className="border bg-green-600 p-1.5 text-gray-100 font-bold rounded-full text-sm flex items-center justify-center">
+            <span className="border bg-green-600 p-1.5 text-white font-bold rounded-full text-sm flex items-center justify-center">
               AB
             </span>
             <span className="flex justify-center items-center text-2xl">
@@ -75,19 +75,12 @@ function NavBar() {
             >
               Tickets
             </NavLink>
-            {/* <NavLink
-                        to=""
-                        className={({ isActive }) =>
-                            isActive ? "text-orange-500 font-bold" : "hover:text-orange-500 cursor-pointer"
-                        }
-                    >
-                        Analytics
-                    </NavLink> */}
+          
             <NavLink
               to="/Explore"
               className={({ isActive }) =>
                 isActive
-                  ? "text-orange-500 font-bold flex items-center gap-1 text-cyan-400"
+                  ? "font-bold flex items-center gap-1 text-cyan-400"
                   : "hover:text-orange-500 cursor-pointer flex items-center gap-1 text-cyan-400"
               }
             >

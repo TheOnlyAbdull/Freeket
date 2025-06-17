@@ -2,13 +2,11 @@ import { FaLocationDot, FaRegClock } from "react-icons/fa6";
 import ButtonPrimary from "../components/ButtonPrimary";
 import Footer from "../components/Footer";
 
-function EventTicket() {
+function TicketForm() {
   return (
     <div className="w-full mt-10">
       <div className="w-full mb-10 md:flex-row md:w-10/12 mx-auto relative px-8 md:px-0 flex flex-col gap-8">
-        {/* <p className="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
-        X
-      </p> */}
+      
 
         <div className="md:w-6/12">
           <form>
@@ -70,7 +68,7 @@ function EventTicket() {
           <div className="py-2 border-t-1 border-orange-500">
             <p className=" font-bold  text-grey-500">summary</p>
             <p className="text-gray-900 text-sm my-2 flex gap-1">
-              <span>web 3 confrence</span>
+              <span className="uppercase">web 3 confrence</span>
               <span>x 1</span>
             </p>
           </div>
@@ -81,4 +79,4 @@ function EventTicket() {
   );
 }
 
-export default EventTicket;
+export default TicketForm;
