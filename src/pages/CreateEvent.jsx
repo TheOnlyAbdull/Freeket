@@ -26,6 +26,14 @@ function CreateEvent() {
             />
 
             <label className="block mb-2 text-sm font-medium text-gray-700">
+              Event Date
+            </label>
+            <input
+              className="w-full p-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              type="date"
+            />
+
+            <label className="block mb-2 text-sm font-medium text-gray-700">
               Event Type
             </label>
             <input
@@ -44,11 +52,11 @@ function CreateEvent() {
             />
 
             <label className="block mb-2 text-sm font-medium text-gray-700">
-              Short Description
+              Long Description
             </label>
             <textarea
               className="w-full p-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Provide a brief overview of the event"
+              placeholder="Provide a detailed overview of the event"
             ></textarea>
 
             <label className="block mb-2 text-sm font-medium text-gray-700">
@@ -58,8 +66,6 @@ function CreateEvent() {
               className="w-full p-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               type="file"
             />
-
-            
           </>
         );
       case 2:
@@ -70,25 +76,18 @@ function CreateEvent() {
             </label>
             <input
               className="w-full p-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              type="datetime-local"
+              type="time"
             />
 
             <label className="block mb-2 text-sm font-medium text-gray-700">
-              End Time
+              Event Duration
             </label>
             <input
               className="w-full p-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              type="datetime-local"
+              type='text'
+              placeholder="3 hour, 4 hours, etc."
             />
 
-            <label className="block mb-2 text-sm font-medium text-gray-700">
-              Time Zone
-            </label>
-            <input
-              className="w-full p-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              type="text"
-              placeholder="E.g., GMT+1, PST, etc."
-            />
 
             <label className="block mb-2 text-sm font-medium text-gray-700">
               Location Type
@@ -97,15 +96,6 @@ function CreateEvent() {
               <option value="physical">Physical</option>
               <option value="virtual">Virtual</option>
             </select>
-
-            <label className="block mb-2 text-sm font-medium text-gray-700">
-              Venue Name (if physical)
-            </label>
-            <input
-              className="w-full p-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              type="text"
-              placeholder="Enter the venue name"
-            />
 
             <label className="block mb-2 text-sm font-medium text-gray-700">
               Address (if physical)
@@ -132,8 +122,6 @@ function CreateEvent() {
               className="w-full p-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Provide instructions for accessing the event"
             ></textarea>
-
-            
           </>
         );
       case 3:
@@ -148,13 +136,6 @@ function CreateEvent() {
               placeholder="Enter the number of tickets available"
             />
 
-            <label className="block mb-2 text-sm font-medium text-gray-700">
-              Ticket Description
-            </label>
-            <textarea
-              className="w-full p-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Provide details about the ticket"
-            ></textarea>
 
             <label className="block mb-2 text-sm font-medium text-gray-700">
               Organizer Name
@@ -181,8 +162,6 @@ function CreateEvent() {
               className="w-full p-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Provide accessibility information"
             ></textarea>
-
-            
           </>
         );
       default:
@@ -191,7 +170,7 @@ function CreateEvent() {
   };
 
   return (
-    <div className="p-6 bg-white  rounded-md md:w-6/12 mx-auto">
+    <div className="p-6 bg-white mt-2 rounded-md md:w-6/12 mx-auto">
       <h1 className="text-4xl font-bold mb-2 text-left text-gray-700 font-roboto">
         Create Event
       </h1>
@@ -200,12 +179,14 @@ function CreateEvent() {
       </h2>
       {renderPhase()}
       <div className="flex justify-between">
-        {phase > 1 && (<button
-                className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600"
-                onClick={prevPhase}
-              >
-                Previous
-              </button>)}
+        {phase > 1 && (
+          <button
+            className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600"
+            onClick={prevPhase}
+          >
+            Previous
+          </button>
+        )}
         {phase == 3 ? (
           <button className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600">
             Submit

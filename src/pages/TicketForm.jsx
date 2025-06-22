@@ -1,14 +1,16 @@
 import { FaLocationDot, FaRegClock } from "react-icons/fa6";
 import ButtonPrimary from "../components/ButtonPrimary";
-import Footer from "../components/Footer";
 
-function TicketForm() {
+function TicketForm({onClose}) {
   return (
-    <div className="w-full mt-10">
-      <div className="w-full mb-10 md:flex-row md:w-10/12 mx-auto relative px-8 md:px-0 flex flex-col gap-8">
-      
-
-        <div className="md:w-6/12">
+    <div className="w-full absolute  top-10 z-10">
+      <div className="w-full m md:my-10 md:flex-row md:w-10/12 px-8 mx-auto border-y-1 bg-white relative p-10 border-orange-500 md:px-0 flex flex-col gap-8">
+        <span
+        onClick={() => onClose(false)}
+          className="absolute top-2 right-0 cursor-pointer text-lg font-bold px-2 border-1 text-orange-500  ">
+          X
+        </span>
+        <div className="md:w-6/12 ">
           <form>
             <div>
               <label htmlFor="full-name">First Name</label>
@@ -43,7 +45,7 @@ function TicketForm() {
                 required
               />
             </div>
-            <ButtonPrimary>Book a Slot</ButtonPrimary>
+            <ButtonPrimary className='py-4'>Book a Slot</ButtonPrimary>
           </form>
         </div>
         <div className="bg-gray-50 p-8 rounded-lg md:w-6/12 shadow-md">
@@ -74,7 +76,6 @@ function TicketForm() {
           </div>
         </div>
       </div>
-      <Footer/>
     </div>
   );
 }

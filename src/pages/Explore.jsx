@@ -1,6 +1,6 @@
 import EventCard from "../components/EventCard";
 import Footer from "../components/Footer";
-
+import getEvents from "../services/apiEvent";
 
 //date fetched from superbase
 const events = [
@@ -16,7 +16,7 @@ const events = [
     title: "Creative Writing Workshop",
     date: "Sat, Jun 01 2025, 10:00am",
     location: "6 Southern Street, New York",
-    price: "FREE",
+    price: "SOLD OUT",
     image: "src/assets/event flier/flier 2.webp",
     id: 2,
 
@@ -33,7 +33,7 @@ const events = [
     title: "Startup Pitch Night",
     date: "Thu, May 23 2025, 6:30pm",
     location: "Innovation Hub, Berlin",
-    price: "FREE",
+    price: "SOLD OUT",
     image: "src/assets/event flier/flier 4.jpg",
     id: 4,
   },
@@ -57,7 +57,7 @@ const events = [
     title: "Film Screening: Indie Shorts",
     date: "Mon, May 27 2025, 7:00pm",
     location: "Virtual",
-    price: "FREE",
+    price: "SOLD OUT",
     image: "https://via.placeholder.com/400x300?text=Film+Screening",
     id: 7, 
   },
@@ -74,6 +74,9 @@ const events = [
 
 
 function Explore() {
+  getEvents();
+  
+
   return (
     <>
       <div className="w-full bg-[url(src/assets/hero-bg.png)] bg-cover bg-no-repeat font-roboto">
@@ -86,7 +89,7 @@ function Explore() {
           </p>
         </div>
       </div>
-      <EventCard events={events} />
+      {/* <EventCard events={events} /> */}
       <Footer />
     </>
   );

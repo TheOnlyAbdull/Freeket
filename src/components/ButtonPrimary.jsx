@@ -1,6 +1,10 @@
-function ButtonPrimary({ children }) {
+function ButtonPrimary({ onClick, children, className, disabled }) {
   return (
-    <button className="block text-center font-medium w-full py-4 bottom-0 rounded-lg bg-orange-500 text-white">
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      className={`block text-center disabled:bg-gray-300 disabled:text-gray-500 font-medium w-full bottom-0 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-all ${className}`}
+    >
       {children}
     </button>
   );
