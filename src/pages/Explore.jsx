@@ -89,7 +89,7 @@ function Explore() {
           </p>
         </div>
       </div>
-      {/* <EventCard events={events} /> */}
+      <EventCard />
       <Footer />
     </>
   );

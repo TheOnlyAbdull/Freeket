@@ -5,19 +5,30 @@ import ButtonPrimary from "./ButtonPrimary";
 import { useQuery } from "@tanstack/react-query";
 import getEvents from "../services/apiEvent";
 
-// function EventCard({ events }) {
+
 function EventCard() {
   const {
     data: events,
-    isLoading,
+    isPending,
     error,
   } = useQuery({
     queryKey: ["event"],
     queryFn: getEvents,
   });
-  // console.log( events);
 
-  // const eventPrice = event.ticket_quantity >= 1 ? "FREE" : "SOLD OUT";
+  if (isPending)
+    return (
+      <div className="w-full mt-5 flex justify-center items-center text-lg text-gray-600">
+        Loading events, please wait...
+      </div>
+    );
+
+  if (error)
+    return (
+      <div className="w-full mt-5 flex justify-center items-center text-lg text-red-500">
+        Oops, something went wrong. {error.message}.
+      </div>
+    );
 
   return (
     <div className="w-full mt-5 font-roboto flex flex-wrap gap-12 justify-center">
@@ -57,8 +68,9 @@ function EventCard() {
                 </p>
                 <Link
                   to={
-                    event.ticket_quantity >= 1 ? `/event/${event.title}` : "#"
+                    event.ticket_quantity >= 1 ? `/event/${event.name}` : "#"
                   }
+                  state={{event: event}}
                 >
                   <ButtonPrimary
                     className="px-4 py-2 mt-2 text-sm "
