@@ -30,6 +30,14 @@ function EventCard() {
       </div>
     );
 
+  if(events.length === 0){
+    return (
+      <div className="w-full mt-5 flex justify-center items-center text-lg text-gray-600">
+        No events available at the moment.
+      </div>
+    );
+  }
+
   return (
     <div className="w-full mt-5 font-roboto flex flex-wrap gap-12 justify-center">
       {events.map((event, i) => (

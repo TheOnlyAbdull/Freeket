@@ -4,13 +4,19 @@ import Illustration from "../components/Illustration";
 import DummyLogos from "../components/DummyLogos";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import backgroundImage from "../assets/background.png";
 // import backgroundImage from "../assets/background.png";
 
 
 function HomePage() {
+  // Import the background image
+
   return (
     <>
-      <main className=" flex justify-center items-center w-full bg-[url(src/assets/background.png)] bg-cover bg-no-repeat">
+      <main
+        className="flex justify-center items-center w-full bg-cover bg-no-repeat"
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+      >
         <div className="bg- w-11/12 text-center py-4 lg:w-6/12 lg:py-8">
           <p className="text-sm rounded-2xl border-amber-500 border-2 inline px-2">
             ❤️ Networking at zero cost

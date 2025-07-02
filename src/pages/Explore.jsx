@@ -1,6 +1,6 @@
 import EventCard from "../components/EventCard";
 import Footer from "../components/Footer";
-import getEvents from "../services/apiEvent";
+import heroBg from "../assets/hero-bg.png";
 
 //date fetched from superbase
 const events = [
@@ -74,12 +74,10 @@ const events = [
 
 
 function Explore() {
-  getEvents();
-  
 
   return (
     <>
-      <div className="w-full bg-[url(src/assets/hero-bg.png)] bg-cover bg-no-repeat font-roboto">
+      <div className="w-full bg-cover bg-no-repeat font-roboto" style={{ backgroundImage: `url(${heroBg})` }}>
         <div className="text-center w-10/12 lg:w-5/12 mx-auto  py-12 lg:py-15">
           <h1 className="text-3xl lg:text-4xl  mb-1">
             Explore the world of events and activities!
