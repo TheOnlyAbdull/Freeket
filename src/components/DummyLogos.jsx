@@ -5,7 +5,7 @@ import portal3Logo from '../assets/dummy-logo/3 portal.svg';
 
 function DummyLogos() {
   return (
-    <div className="w-full bg-grey-100 lg:px-10 font-finger-paint">
+    <div className="w-full bg-grey-100 lg:px-10 font-finger-paint bg-white">
       <div className="flex items-center justify-center text-center flex-wrap gap-2 my-20 text-gray-500">
         <img src={corpLogo} alt="Corp Logo" className="w-40" />
         <img src={blockLogo} alt="Block Logo" className="w-40" />

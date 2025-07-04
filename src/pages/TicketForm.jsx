@@ -3,8 +3,8 @@ import ButtonPrimary from "../components/ButtonPrimary";
 
 function TicketForm({onClose}) {
   return (
-    <div className="w-full absolute  top-10 z-10">
-      <div className="w-full m md:my-10 md:flex-row md:w-10/12 px-8 mx-auto border-y-1 bg-white relative p-10 border-orange-500 md:px-0 flex flex-col gap-8">
+    <div className="w-full absolute  top-0  z-10">
+      <div className="w-full md:py-26  md:flex-row md:w-10/12 px-8 mx-auto border-y-4 bg-white relative p-10 border-orange-500 md:px-0 flex flex-col gap-8">
         <span
         onClick={() => onClose(false)}
           className="absolute top-2 right-0 cursor-pointer text-lg font-bold px-2 border-1 text-orange-500  ">

@@ -5,13 +5,38 @@ import TicketForm from "./TicketForm";
 import ButtonPrimary from "../components/ButtonPrimary";
 import Footer from "../components/Footer";
 import { useState } from "react";
+import { useEvents } from "../features/events/useEvents";
+import Spinner from "../ui/Spinner";
 
 function Event() {
   const [openTicketForm, setOpenTicketForm] = useState(false);
-  // const { id } = useParams();
-  const location = useLocation();
-  const event = location.state?.event;
-  console.log(event);
+  const { id } = useParams();
+  const { events, isPending, isError, error, status } = useEvents();
+
+  // const location = useLocation();
+  // let event = location.state?.event || events?.find((e) => e.id === id);
+  // let event = location.state?.event || events
+
+  const event = events?.find((e) => e.name === id);
+  console.log(id, events, event);
+
+  if (isPending) {
+    return <Spinner isPending={isPending} />;
+  }
+
+
+  if (isError) {
+    return (
+      <div className="w-full flex flex-col items-center justify-center min-h-screen">
+        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Event Not Found</h2>
+        <p className="text-gray-600">Sorry, the event you are looking for does not exist.</p>
+        <Link to="/Explore" className="text-blue-500 hover:underline mt-4">
+          Back to Events
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <div className="w-full relative">
       <div className=" md:w-10/12 w-10/12 lg:w-7/12 mx-auto ">
@@ -20,7 +45,7 @@ function Event() {
             <img
               alt="event flyer"
               className="h-full rounded-xl "
-              src="src/assets/event flier/flier 1.webp"
+              src={event.event_flier}
             />
           </div>
           <div className="md:w-6/12 mt-4 bg-white rounded-xl md:p-8 lg:p-6">
