@@ -53,41 +53,41 @@ function EventCard() {
               <img
                 alt="event flyer"
                 className="h-full rounded-t-xl "
-                src={event.event_flier}
+                src={event.eventImage }
               />
             </div>
             <div className="w-full p-3  bg-white rounded-b-xl">
-              <h2 className="text-xl font-medium">{event.name}</h2>
+              <h2 className="text-xl font-medium">{event.eventName}</h2>
               <div className="text-gray-700 text-md my-2 flex flex-col gap-1">
                 <p className="flex items-center">
                   <span>
                     <FaRegClock className="inline" />
                   </span>
-                  <span className="ml-3">{event.event_date}</span>
+                  <span className="ml-3">{event.eventDate}</span>
                 </p>
                 <p>
                   <span>
                     <FaLocationDot className="inline" />
                   </span>
-                  <span className="ml-3">{event.event_location}</span>
+                  <span className="ml-3">{event.eventAddress}</span>
                 </p>
                 <p>
                   <span>
                     <BsTicketPerforatedFill className="inline" />
                   </span>
                   <span className="ml-3">
-                    {event.ticket_quantity >= 1 ? "FREE" : "SOLD OUT"}
+                    {event.ticketQuantity >= 1 ? "FREE" : "SOLD OUT"}
                   </span>
                 </p>
                 <Link
-                  to={event.ticket_quantity >= 1 ? `/event/${event.name}` : "#"}
-                  state={{ event: event }}
+                  to={event.ticketQuantity >= 1 ? `/event/${event.eventName}` : "#"}
+                  
                 >
                   <ButtonPrimary
                     className="px-4 py-2 mt-2 text-sm "
-                    disabled={event.ticket_quantity < 1}
+                    disabled={event.ticketQuantity < 1}
                   >
-                    {event.ticket_quantity < 1 ? "Sold Out" : "Get Ticket"}
+                    {event.ticketQuantity < 1 ? "Sold Out" : "Get Ticket"}
                   </ButtonPrimary>
                 </Link>
               </div>

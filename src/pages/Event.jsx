@@ -1,6 +1,6 @@
 import { BsTicketPerforatedFill } from "react-icons/bs";
 import { FaLocationDot, FaRegClock } from "react-icons/fa6";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import TicketForm from "./TicketForm";
 import ButtonPrimary from "../components/ButtonPrimary";
 import Footer from "../components/Footer";
@@ -11,13 +11,13 @@ import Spinner from "../ui/Spinner";
 function Event() {
   const [openTicketForm, setOpenTicketForm] = useState(false);
   const { id } = useParams();
-  const { events, isPending, isError, error, status } = useEvents();
+  const { events, isPending, isError, } = useEvents();
 
   // const location = useLocation();
   // let event = location.state?.event || events?.find((e) => e.id === id);
   // let event = location.state?.event || events
 
-  const event = events?.find((e) => e.name === id);
+  const event = events?.find((e) => e.eventName === id);
   console.log(id, events, event);
 
   if (isPending) {
@@ -45,23 +45,23 @@ function Event() {
             <img
               alt="event flyer"
               className="h-full rounded-xl "
-              src={event.event_flier}
+              src={event.eventImage}
             />
           </div>
           <div className="md:w-6/12 mt-4 bg-white rounded-xl md:p-8 lg:p-6">
-            <h2 className="text-3xl font-medium">{event.name}</h2>
+            <h2 className="text-3xl font-medium">{event.eventName}</h2>
             <div className="text-gray-700 text-base my-2">
               <p className="flex items-center">
                 <span>
                   <FaRegClock className="inline" />
                 </span>
-                <span className="ml-3">{event.event_date}, 12:00pm</span>
+                <span className="ml-3">{event.eventDate}, 12:00pm</span>
               </p>
               <p className="flex items-center">
                 <span>
                   <FaLocationDot className="inline" />
                 </span>
-                <span className="ml-3">{event.event_location}</span>
+                <span className="ml-3">{event.eventAddress}</span>
               </p>
               <p className="flex items-center mb-16">
                 <span>
@@ -80,27 +80,27 @@ function Event() {
         </div>
         <div className="mt-5 mb-10 bg-white">
           <h2 className="text-xl font-medium">About this event</h2>
-          <p className="text-gray-900 text-base my-2">{event.description}</p>
+          <p className="text-gray-900 text-base my-2">{event.longDescription}</p>
           <div className="mt-4">
             <h3 className="text-lg font-medium">Event Details</h3>
             <p className="text-gray-900 text-base my-1">
               <strong className="text-orange-900">Organizers:</strong>{" "}
-              {event.organizer_name}
+              {event.organizerName}
             </p>
             <p className="text-gray-900 text-base my-1">
               <strong className="text-orange-900">Category:</strong>{" "}
-              {event.event_category}
+              {event.eventCategory}
             </p>
             <p className="text-gray-900 text-base my-1">
               <strong className="text-orange-900">Event Type:</strong>{" "}
-              {event.event_type}
+              {event.eventType}
             </p>
             <p className="text-gray-900 text-base my-1">
               <strong className="text-orange-900">Duration:</strong> 4 hours
             </p>
             <p className="text-gray-900 text-base my-1">
               <strong className="text-orange-900">Contact:</strong>{" "}
-              {event.contact_email}
+              {event.contactEmail}
             </p>
           </div>
         </div>

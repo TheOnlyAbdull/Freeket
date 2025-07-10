@@ -1,13 +1,34 @@
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { createEvents } from "../features/events/apiEvent";
 
 function CreateEvent() {
   const [phase, setPhase] = useState(1);
-  const { handleSubmit, register } = useForm();
+  const { handleSubmit, register, reset } = useForm();
+  const queryClient = useQueryClient();
+  const { mutate, isLoading: isCreating } = useMutation({
+    mutationFn: createEvents,
+    onSuccess: () => {
+      toast.success("Event created successfully!");
+      queryClient.invalidateQueries({
+        queryKey: ["events"],
+      });
+      reset();
+    },
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+    onError: ()=> toast.error("Event Could not be created, Retry") 
+  });
+
+  function onSubmit(data) {
+    console.log("Form submitted successfully:", data);
+    mutate(data);
+  }
+  function onError(errors) {
+    console.error("Form submission errors:", errors);
+    toast.error("Fill in all required fields to proceed.");
+  }
 
   const nextPhase = () => {
     setPhase((prevPhase) => prevPhase + 1);
@@ -121,7 +142,7 @@ function CreateEvent() {
               className="w-full p-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               type="text"
               placeholder="Enter the venue address"
-              {...register("address", { required: true })}
+              {...register("eventAddress", { required: true })}
             />
 
             <label className="block mb-2 text-sm font-medium text-gray-700">
@@ -200,13 +221,14 @@ function CreateEvent() {
       <h2 className="text-lg font-bold mb-4 text-orange-500">
         Phase <span>{phase}</span> of 3
       </h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit, onError)}>
         {renderPhase()}
         <div className="flex justify-between">
           {phase > 1 && (
             <button
               className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600"
               onClick={prevPhase}
+              type="button"
             >
               Previous
             </button>
@@ -215,6 +237,7 @@ function CreateEvent() {
             <button
               type="submit"
               className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
+              disabled={isCreating}
             >
               Submit
             </button>
@@ -222,6 +245,7 @@ function CreateEvent() {
             <button
               className="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600"
               onClick={nextPhase}
+              type="button"
             >
               Next
             </button>
