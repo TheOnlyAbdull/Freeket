@@ -4,10 +4,14 @@ import { IoMdAdd, IoMdArrowBack } from "react-icons/io";
 import { CgMenuGridO } from "react-icons/cg";
 import { useState } from "react";
 import Logo from "../ui/Logo";
+import { CiLogout, CiMail } from "react-icons/ci";
+import { FaRegUser } from "react-icons/fa6";
+import { useLogout } from "../features/authentication/useLogout";
 
 function NavBar() {
   const [showNav, setShowNav] = useState(true);
-
+  const [showDropdown, setShowDropdown] = useState(false);
+  const { logOut, isLoading } = useLogout();
   return (
     <nav>
       <div className="flex justify-between px-4 py-4 shadow-md">
@@ -15,21 +19,48 @@ function NavBar() {
         <div className="flex items-center gap-4 ">
           <p
             onClick={() => setShowNav(!showNav)}
-            className={`flex item-center border rounded-full border-gray-500 p-2.5 ${showNav ? "bg-gray-100" : "bg-white"} cursor-pointer`}
+            className={`flex item-center border rounded-full border-gray-500 p-2.5 ${
+              showNav ? "bg-gray-100" : "bg-white"
+            } cursor-pointer`}
           >
             <CgMenuGridO />
           </p>
           <p className="flex item-center border rounded-full p-2.5 text-orange-500">
             <IoMdAdd />
           </p>
-          <p className="border rounded-full border-gray-500 px-1 py-0.5 flex gap-1 items-center">
+          <div
+            onClick={() => setShowDropdown(!showDropdown)}
+            className="border cursor-pointer rounded-full border-gray-500 px-1 py-0.5 flex gap-1 items-center"
+          >
             <span className="border bg-green-600 p-1.5 text-white font-bold rounded-full text-sm flex items-center justify-center">
               AB
             </span>
             <span className="flex justify-center items-center text-2xl">
               <RiArrowDropDownLine />
             </span>
-          </p>
+            {showDropdown && (
+              <div className="absolute  bg-white shadow-lg rounded-md mt-2 right-0 top-12 ">
+                <ul className="p-2 flex flex-col gap-1 text-gray-700 font-semibold text-sm">
+                  <li className=" hover:bg-gray-100   flex items-center gap-1">
+                    <FaRegUser />
+                    abdullahi
+                  </li>
+                  <li className=" hover:bg-gray-100  flex items-center gap-1">
+                    <CiMail />
+                    abdull@gmail.com
+                  </li>
+                  <li
+                    onClick={logOut}
+                    className={` hover:bg-gray-100 cursor-pointer flex items-center gap-1} ${
+                      isLoading ? "opacity-50 cursor-not-allowed" : ""
+                    }`}
+                  >
+                    <CiLogout /> Logout
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
         </div>
       </div>
       {showNav && (
@@ -75,7 +106,7 @@ function NavBar() {
             >
               Tickets
             </NavLink>
-          
+
             <NavLink
               to="/Explore"
               className={({ isActive }) =>

@@ -31,7 +31,7 @@ function HomePage() {
 
           <div className="mb-8 flex justify-center items-center gap-4 mt-8">
             <button className="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-amber-600 transition duration-300 ease-in-out">
-              <Link to='/CreateEvent' className="flex items-center">Create Event</Link>
+              <Link to='/Account' className="flex items-center">Create Event</Link>
             </button>
             <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out">
               <Link to='/Explore' className="flex items-center">

@@ -15,7 +15,7 @@ import EventTicket from "./pages/TicketForm";
 import EventList from "./pages/EventList";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";  
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -53,6 +53,7 @@ function App() {
           <Route path="Account" element={<Account />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
+        <Toaster position="top-right" />
       </BrowserRouter>
     </QueryClientProvider>
   );
