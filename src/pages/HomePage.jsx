@@ -5,11 +5,28 @@ import DummyLogos from "../components/DummyLogos";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import backgroundImage from "../assets/background.png";
+import { useUser } from "../features/authentication/useUser";
+import toast from "react-hot-toast";
+import Spinner from "../ui/Spinner";
+import { useEffect } from "react";
 // import backgroundImage from "../assets/background.png";
 
-
 function HomePage() {
-  // Import the background image
+  const { user, isAuthenticated, isLoading } = useUser();
+
+ useEffect(() => {
+    if (isAuthenticated) {
+      toast.success(`Welcome back, ${user.user_metadata.firstName}!`);
+    }
+  }, [isAuthenticated, user]);
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Spinner/>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -31,10 +48,15 @@ function HomePage() {
 
           <div className="mb-8 flex justify-center items-center gap-4 mt-8">
             <button className="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-amber-600 transition duration-300 ease-in-out">
-              <Link to='/Account' className="flex items-center">Create Event</Link>
+              <Link
+                to={isAuthenticated ? "/createEvent" : "/Account"}
+                className="flex items-center"
+              >
+                Create Event
+              </Link>
             </button>
             <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out">
-              <Link to='/Explore' className="flex items-center">
+              <Link to="/Explore" className="flex items-center">
                 Explore Events
               </Link>
             </button>

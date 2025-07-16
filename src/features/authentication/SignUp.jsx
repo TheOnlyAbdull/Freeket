@@ -1,12 +1,28 @@
 import { useState } from "react";
+import { useSignUp } from "./useSignUp";
 
 function SignUp({ setCreateAccount }) {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
+  const { signUp } = useSignUp();
 
+  function handleSignUp(e) {
+    e.preventDefault();
+    if (!firstName || !lastName || !email || !password) {
+      console.error("All fields are required.");
+      return;
+    }
+
+    signUp({ firstName, lastName, email, password });
+
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPassword("");
+  }
 
   return (
     <>
@@ -15,34 +31,34 @@ function SignUp({ setCreateAccount }) {
         Enter your details to create your account
       </p>
 
-      <form>
+      <form onSubmit={handleSignUp}>
         <div className="flex md:flex-row gap-4">
-        <div className="w-6/12">
-          <label htmlFor="first-name">First Name</label>
-          <input
-            className="block outline-1 text-gray-500 w-full mb-4 rounded-sm p-4 text-sm"
-            placeholder="Enter First Name"
-            type="text"
-            id="first-name"
-            name="first-name"
-            required
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-        </div>
-        <div className="w-6/12">
-          <label htmlFor="last-name">Last Name</label>
-          <input
-            className="block outline-1 text-gray-500 w-full mb-4 rounded-sm p-4 text-sm"
-            placeholder="Enter Last Name"
-            type="text"
-            id="last-name"
-            name="last-name"
-            required
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-          />
-        </div>
+          <div className="w-6/12">
+            <label htmlFor="first-name">First Name</label>
+            <input
+              className="block outline-1 text-gray-500 w-full mb-4 rounded-sm p-4 text-sm"
+              placeholder="Enter First Name"
+              type="text"
+              id="first-name"
+              name="first-name"
+              required
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+          </div>
+          <div className="w-6/12">
+            <label htmlFor="last-name">Last Name</label>
+            <input
+              className="block outline-1 text-gray-500 w-full mb-4 rounded-sm p-4 text-sm"
+              placeholder="Enter Last Name"
+              type="text"
+              id="last-name"
+              name="last-name"
+              required
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
+          </div>
         </div>
 
         <div>
@@ -62,25 +78,25 @@ function SignUp({ setCreateAccount }) {
           <label htmlFor="password">Password</label>
           <input
             className="block outline-1 text-gray-500 w-full mb-4 rounded-sm p-4 text-sm"
-            placeholder="Enter Password"
+            placeholder="Enter Password, minimum 8 characters"
             type="password"
             id="password"
             name="password"
             required
+            minLength={8}
             value={password}
-            onChange={(e) => setPassword(e.target.value)}    
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <button
           className="my-6 cursor-pointer rounded-sm bg-orange-500 text-white w-full py-3 font-bold block text-center"
-          type="submit"
+          // tpe="submit"
+          onClick={handleSignUp}
         >
           Login
         </button>
       </form>
       <div className="text-sm  text-gray-500">
-       
-
         <p>
           Have an account?{""}
           <span

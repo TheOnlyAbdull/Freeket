@@ -16,6 +16,7 @@ import EventList from "./pages/EventList";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";  
+import EmailVerification from "./pages/EmailVerification";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -36,6 +37,7 @@ function App() {
             <Route path="HomePage" element={<HomePage />} />
             <Route path="Explore" element={<Explore />} />
             <Route path="event/:id" element={<Event />} />
+            <Route path="verify-email" element={<EmailVerification />} />
             {/* <Route path="event/:id/ticket" element={<EventTicket />} /> */}
           </Route>
 

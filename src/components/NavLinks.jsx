@@ -1,9 +1,18 @@
 import { useState } from "react";
 import { RiMenuFill } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
+import { useUser } from "../features/authentication/useUser";
+import Spinner from "../ui/Spinner";
 
-function NavLinks() {
-  const [showNav, setShowNav] = useState(false);
+// function NavLinks({ isAuthenticated, user }) {
+  function NavLinks() {
+    const [showNav, setShowNav] = useState(false);
+    const { isAuthenticated } = useUser();
+  
+
+
+  
+
   return (
     <>
       <div
@@ -26,7 +35,8 @@ function NavLinks() {
         >
           Explore
         </NavLink>
-        <NavLink to='/Account'
+        <NavLink
+          to={isAuthenticated ? "/createEvent" : "/Account"}
           className="transition-colors duration-200
       hover:text-cyan-400
       active:text-gray-700 active:bg-cyan-100 active:rounded-md active:font-semibold
@@ -36,12 +46,11 @@ function NavLinks() {
         </NavLink>
         <NavLink
           className="hover:bg-orange-600 transition-colors duration-200 hover:shadow-sm cursor-pointer bg-orange-500 text-white py-2 px-4 block rounded-md  text-center"
-          to="/Account"
+          to={isAuthenticated ? "/createEvent" : "/Account"}
         >
           Account
         </NavLink>
       </div>
-      
     </>
   );
 }

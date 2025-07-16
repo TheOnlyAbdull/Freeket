@@ -40,7 +40,7 @@ function EventCard() {
       </div>
     );
   }
-  console.log(error, isPending);
+  
   return (
     <div className="w-full my-10 font-roboto flex flex-wrap gap-12  justify-center bg-white ">
       {events.map((event, i) => (

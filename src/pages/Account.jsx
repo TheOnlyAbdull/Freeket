@@ -11,9 +11,9 @@ function Account() {
       <div className="w-full font-roboto flex items-center mt-10">
         <div className="w-11/12 mx-auto md:w-4/12">
           {createAccount ? (
-            <Login setCreateAccount={setCreateAccount} />
-          ) : (
             <SignUp setCreateAccount={setCreateAccount} />
+          ) : (
+            <Login setCreateAccount={setCreateAccount} />
           )}
         </div>
       </div>
