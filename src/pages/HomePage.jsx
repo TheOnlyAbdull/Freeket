@@ -12,7 +12,7 @@ import { useEffect } from "react";
 // import backgroundImage from "../assets/background.png";
 
 function HomePage() {
-  const { user, isAuthenticated, isLoading } = useUser();
+  const { user, isAuthenticated } = useUser();
 
  useEffect(() => {
     if (isAuthenticated) {
@@ -20,13 +20,13 @@ function HomePage() {
     }
   }, [isAuthenticated, user]);
 
-  if (isLoading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <Spinner/>
-      </div>
-    );
-  }
+//   if (isLoading) {
+//     return (
+//       <div className="flex justify-center items-center h-screen">
+//         <Spinner/>
+//       </div>
+//     );
+//   }
 
   return (
     <>

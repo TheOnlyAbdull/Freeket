@@ -45,7 +45,7 @@ function EventCard() {
     <div className="w-full my-10 font-roboto flex flex-wrap gap-12  justify-center bg-white ">
       {events.map((event, i) => (
         <div
-          className="w-10/12 border-1  border-gray-100 rounded-xl lg:w-3/12 md:w-5/12 shadow-md hover:shadow-lg transition-all duration-300 ease-in-out"
+          className="w-11/12 border-1  border-gray-100 rounded-xl lg:w-3/12 md:w-5/12 shadow-md hover:shadow-lg transition-all duration-300 ease-in-out"
           key={i}
         >
           <div>
