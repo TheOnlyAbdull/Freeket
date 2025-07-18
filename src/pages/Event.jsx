@@ -84,22 +84,22 @@ function Event() {
           <div className="mt-4">
             <h3 className="text-lg font-medium">Event Details</h3>
             <p className="text-gray-900 text-base my-1">
-              <strong className="text-orange-900">Organizers:</strong>{" "}
+              <strong className="text-orange-900 capitalize">Organizers:</strong>{" "}
               {event.organizerName}
             </p>
             <p className="text-gray-900 text-base my-1">
-              <strong className="text-orange-900">Category:</strong>{" "}
+              <strong className="text-orange-900 capitalize">Category:</strong>{" "}
               {event.eventCategory}
             </p>
             <p className="text-gray-900 text-base my-1">
-              <strong className="text-orange-900">Event Type:</strong>{" "}
+              <strong className="text-orange-900 capitalize">Event Type:</strong>{" "}
               {event.eventType}
             </p>
             <p className="text-gray-900 text-base my-1">
-              <strong className="text-orange-900">Duration:</strong> 4 hours
+              <strong className="text-orange-900 capitalize">Duration:</strong> 4 hours
             </p>
             <p className="text-gray-900 text-base my-1">
-              <strong className="text-orange-900">Contact:</strong>{" "}
+              <strong className="text-orange-900 capitalize">Contact:</strong>{" "}
               {event.contactEmail}
             </p>
           </div>
