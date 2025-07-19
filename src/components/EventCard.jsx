@@ -52,7 +52,7 @@ function EventCard() {
             <div className=" bg-grey-500 border-b-1 lg:h-80 border-gray-100 w-full  h-70 rounded-t-xl flex justify-center items-center ">
               <img
                 alt="event flyer"
-                className="h-full rounded-t-xl "
+                className="h-full rounded-t-xl w-full"
                 src={event.eventImage }
               />
             </div>

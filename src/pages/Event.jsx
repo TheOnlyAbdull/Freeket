@@ -46,8 +46,9 @@ function Event() {
         <div className=" flex flex-col md:flex-row  ">
           <div className="bg-grey-500 md:w-6/12  md:h-85 border-gray-100  h-72 rounded-xl flex justify-center items-center">
             <img
+            
               alt="event flyer"
-              className="h-full rounded-xl "
+              className="h-full rounded-xl w-full"
               src={event.eventImage}
             />
           </div>
