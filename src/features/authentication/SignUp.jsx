@@ -93,7 +93,7 @@ function SignUp({ setCreateAccount }) {
           // tpe="submit"
           onClick={handleSignUp}
         >
-          Login
+          Create Account
         </button>
       </form>
       <div className="text-sm  text-gray-500">

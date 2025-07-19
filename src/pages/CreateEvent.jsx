@@ -3,11 +3,13 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { createEvents } from "../features/events/apiEvent";
+import { useNavigate } from "react-router-dom";
 
 function CreateEvent() {
   const [phase, setPhase] = useState(1);
   const { handleSubmit, register, reset } = useForm();
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
   const { mutate, isLoading: isCreating } = useMutation({
     mutationFn: createEvents,
     onSuccess: () => {
@@ -16,18 +18,19 @@ function CreateEvent() {
         queryKey: ["events"],
       });
       reset();
+      navigate("/ManageEvents");
     },
 
-    onError: ()=> toast.error("Event Could not be created, Retry") 
+    onError: () => toast.error("Event Could not be created, Retry")
   });
 
   function onSubmit(data) {
     console.log("Form submitted successfully:", data);
-    mutate(data);
+    mutate({...data, eventImage: data.eventImage[0]});
   }
   function onError(errors) {
     console.error("Form submission errors:", errors);
-    toast.error("Fill in all required fields to proceed.");
+    toast("All fields are required to be filled.", { icon: "👾" });
   }
 
   const nextPhase = () => {

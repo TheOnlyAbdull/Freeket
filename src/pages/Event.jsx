@@ -11,7 +11,7 @@ import Spinner from "../ui/Spinner";
 function Event() {
   const [openTicketForm, setOpenTicketForm] = useState(false);
   const { id } = useParams();
-  const { events, isPending, isError, } = useEvents();
+  const { events, isPending, isError } = useEvents();
 
   // const location = useLocation();
   // let event = location.state?.event || events?.find((e) => e.id === id);
@@ -24,12 +24,15 @@ function Event() {
     return <Spinner isPending={isPending} />;
   }
 
-
   if (isError) {
     return (
       <div className="w-full flex flex-col items-center justify-center min-h-screen">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Event Not Found</h2>
-        <p className="text-gray-600">Sorry, the event you are looking for does not exist.</p>
+        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+          Event Not Found
+        </h2>
+        <p className="text-gray-600">
+          Sorry, the event you are looking for does not exist.
+        </p>
         <Link to="/Explore" className="text-blue-500 hover:underline mt-4">
           Back to Events
         </Link>
@@ -80,26 +83,28 @@ function Event() {
         </div>
         <div className="mt-5 mb-10 bg-white">
           <h2 className="text-xl font-medium">About this event</h2>
-          <p className="text-gray-900 text-base my-2">{event.longDescription}</p>
+          <p className="text-gray-900 text-base my-2">
+            {event.longDescription}
+          </p>
           <div className="mt-4">
             <h3 className="text-lg font-medium">Event Details</h3>
-            <p className="text-gray-900 text-base my-1">
-              <strong className="text-orange-900 capitalize">Organizers:</strong>{" "}
+            <p className="text-gray-900 text- capitalize my-1">
+              <strong className="text-orange-900 ">Organizer:</strong>{" "}
               {event.organizerName}
             </p>
-            <p className="text-gray-900 text-base my-1">
-              <strong className="text-orange-900 capitalize">Category:</strong>{" "}
+            <p className="text-gray-900 text-base capitalize my-1">
+              <strong className="text-orange-900 ">Category:</strong>{" "}
               {event.eventCategory}
             </p>
-            <p className="text-gray-900 text-base my-1">
-              <strong className="text-orange-900 capitalize">Event Type:</strong>{" "}
+            <p className="text-gray-900 text-base capitalize my-1">
+              <strong className="text-orange-900 ">Event Type:</strong>{" "}
               {event.eventType}
             </p>
-            <p className="text-gray-900 text-base my-1">
-              <strong className="text-orange-900 capitalize">Duration:</strong> 4 hours
+            <p className="text-gray-900 text-base capitalize my-1">
+              <strong className="text-orange-900 ">Duration:</strong> 4 hours
             </p>
-            <p className="text-gray-900 text-base my-1">
-              <strong className="text-orange-900 capitalize">Contact:</strong>{" "}
+            <p className="text-gray-900 text-base capitalize my-1">
+              <strong className="text-orange-900 ">Contact:</strong>{" "}
               {event.contactEmail}
             </p>
           </div>
