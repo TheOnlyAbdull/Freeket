@@ -42,7 +42,7 @@ function Event() {
 
   return (
     <div className="w-full relative">
-      <div className=" md:w-10/12 w-10/12 lg:w-7/12 mx-auto ">
+      <div className=" md:w-10/12 w-11/12 lg:w-7/12 mx-auto ">
         <div className=" flex flex-col md:flex-row  ">
           <div className="bg-grey-500 md:w-6/12  md:h-85 border-gray-100  h-72 rounded-xl flex justify-center items-center">
             <img
