@@ -12,6 +12,10 @@ export function useSignUp() {
       toast.success("Account created successfully!. Please verify your email.");
       navigate("/verify-email");
     },
+    onError: (error) => {
+      console.error("Error signing up:", error);
+      toast.error(error.message || "Failed to create account. Please try again.");
+    }
   });
 
   return { signUp, isLoading };

@@ -18,7 +18,6 @@ function Event() {
   // let event = location.state?.event || events
 
   const event = events?.find((e) => e.eventName === id);
-  console.log(id, events, event);
 
   if (isPending) {
     return <Spinner isPending={isPending} />;
@@ -111,7 +110,7 @@ function Event() {
           </div>
         </div>
       </div>
-      {openTicketForm && <TicketForm onClose={setOpenTicketForm} />}
+      {openTicketForm && <TicketForm onClose={setOpenTicketForm} eventName={event.eventName} eventId={event.id} />}
       <Footer />
     </div>
   );

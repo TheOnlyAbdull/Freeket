@@ -14,6 +14,9 @@ export async function signUpUser({ firstName, lastName, email, password }) {
   if (error) throw new Error(error.message);
 
   return data;
+
+
+  
 }
 
 export async function loginUser({ email, password }) {

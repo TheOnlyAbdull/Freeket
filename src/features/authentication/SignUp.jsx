@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSignUp } from "./useSignUp";
+import toast from "react-hot-toast";
 
 function SignUp({ setCreateAccount }) {
   const [firstName, setFirstName] = useState("");
@@ -12,7 +13,11 @@ function SignUp({ setCreateAccount }) {
   function handleSignUp(e) {
     e.preventDefault();
     if (!firstName || !lastName || !email || !password) {
-      console.error("All fields are required.");
+      toast.error("All fields are required.");
+      return;
+    }
+    if (password.length < 8) {
+      toast.error("Password must be at least 8 characters long.");
       return;
     }
 
