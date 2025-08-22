@@ -3,7 +3,6 @@ import AppLayout from "./ui/AppLayout";
 import AuthorizedLayout from "./ui/AuthorizedLayout";
 import HomePage from "./pages/HomePage";
 import Explore from "./pages/Explore";
-import Booking from "./pages/Booking";
 import Analytics from "./pages/Analytics";
 import Account from "./pages/Account";
 import CreateEvent from "./pages/CreateEvent";
@@ -49,7 +48,6 @@ function App() {
               <Route index element={<EventList />} />
               <Route path="/ManageEvents/Analytics" element={<Analytics />} />
             </Route>
-            <Route path="Booking" element={<Booking />} />
           </Route>
 
           <Route path="Account" element={<Account />} />
