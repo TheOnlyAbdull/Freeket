@@ -1,11 +1,28 @@
-async function getEventAnalytics(id){
-     //1. Get current event id
-     const eventId = id;
-     //2. get current user/organizer id
-     const userId = 'user-123';
+import supabase from "../../services/supabase";
 
-     //3. compute attendee details from registration data(name, email, phone, checkedIn) and return
+async function getEventAnalytics({ eventId }) {
 
+  //TODO
+  //1. get the registration profile with the eventID
+  const { data, error } = await supabase
+    .from("registrations")
+    .select(`
+      *,
+      profile:attendeeId (
+        id,
+        displayName,
+        email,
+        phoneNumber
+      )
+    `)
+    .eq("eventId", eventId);
+
+    
+
+  if (error) {
+    console.error("Error fetching registrations:", error);
+    throw new Error("Could not fetch registrations");
+  }
+  return data;
 }
-
 export default getEventAnalytics;

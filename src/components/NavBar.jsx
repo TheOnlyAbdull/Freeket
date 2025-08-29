@@ -73,8 +73,8 @@ function NavBar() {
         </div>
       </div>
       {showNav && (
-        <div className=" px-2 py-4 bg-gray-100">
-          <ul className="flex justify-between text-gray-700 font-semibold text-sm flex-wrap">
+        <div className=" px-2 py-4 bg-gray-100 md:p-4">
+          <ul className="flex  gap-3 md:gap-5 justify-start  text-gray-700 font-semibold text-sm flex-wrap">
             <NavLink
               to="/CreateEvent"
               className={({ isActive }) =>
