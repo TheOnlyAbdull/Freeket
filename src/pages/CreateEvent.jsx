@@ -217,7 +217,7 @@ function CreateEvent() {
   };
 
   return (
-    <div className="p-6 bg-white mt-2 rounded-md md:w-6/12 mx-auto">
+    <div className="p-6 bg-white rounded-md md:w-6/12 mx-auto mt-30">
       <h1 className="text-4xl font-bold mb-2 text-left text-gray-700 font-roboto">
         Create Event
       </h1>

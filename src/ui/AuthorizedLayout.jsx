@@ -22,7 +22,7 @@ function AuthorizedLayout() {
 
 
     if (isAuthenticated) return (
-    <div>
+    <div className="relative">
         <NavBar/>
         <Outlet />
     </div>

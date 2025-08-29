@@ -1,7 +1,10 @@
 async function getEventAnalytics(id){
-     id = 'feb1e658-8ea2-4791-b286-c29303dec1f2'
+     //1. Get current event id
+     const eventId = id;
+     //2. get current user/organizer id
+     const userId = 'user-123';
 
-     
+     //3. compute attendee details from registration data(name, email, phone, checkedIn) and return
 
 }
 

@@ -1,6 +1,6 @@
 function CheckIn() {
   return (
-    <div className="p-4 flex items-center justify-center">
+    <div className="p-4 flex items-center justify-center mt-30">
       <div className="w-full md:w-3/4 lg:w-2/3 xl:w-1/2 ">
         <h1 className="text-4xl font-bold mb-6 text-left text-gray-700 font-roboto">
           Check In

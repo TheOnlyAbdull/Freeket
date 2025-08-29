@@ -11,8 +11,6 @@ export async function getEvents() {
   return data;
 }
 
-// https://ylurzltcsbthbggluxeg.supabase.co/storage/v1/object/public/event-fliers//web3.webp
-
 export async function createEvents(newEvent) {
   const imageName = `${Math.random()}-${newEvent.eventImage.name}`.replaceAll(
     "/",

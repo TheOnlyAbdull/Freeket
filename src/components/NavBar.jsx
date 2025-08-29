@@ -18,8 +18,8 @@ function NavBar() {
 
   
   return (
-    <nav>
-      <div className="flex justify-between px-4 py-4 shadow-md">
+    <nav className="fixed top-0 left-0 z-10 w-full">
+      <div className="flex justify-between px-4 py-4 shadow-md bg-white ">
         <Logo path="/CreateEvent" />
         <div className="flex items-center gap-4 ">
           <p
