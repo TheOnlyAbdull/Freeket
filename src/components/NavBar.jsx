@@ -19,7 +19,7 @@ function NavBar() {
   return (
     <nav className="fixed top-0 left-0 z-10 w-full">
       <div className="flex justify-between md:px-8 px-2 py-4 shadow-md bg-white ">
-        <Logo path="/CreateEvent" />
+        <Logo path="/explore" />
         <div className="flex items-center gap-4 text-orange-500">
           <p className="flex item-center border rounded-full p-2.5 text-gray-500">
             <Link to="/ManageEvents">
