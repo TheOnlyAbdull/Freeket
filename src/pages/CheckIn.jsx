@@ -1,9 +1,29 @@
+import { useQuery } from "@tanstack/react-query";
+import { useLocation } from "react-router-dom";
+
+
 function CheckIn() {
+ const state = useLocation().state;
+ const { eventName, eventId, userId } = state || {};
+
+
+//  function UserId(){
+//   const {data} = useQuery({
+//     queryKey: ["userId", userId],
+//     queryFn: () => getUserId({userId}),
+//   })
+//   return data;
+
+//  }
+
   return (
-    <div className="p-4 flex items-center justify-center mt-30">
-      <div className="w-full md:w-3/4 lg:w-2/3 xl:w-1/2 ">
-        <h1 className="text-4xl font-bold mb-6 text-left text-gray-700 font-roboto">
-          Check In
+    <div className=" flex items-center justify-center">
+      {/* <div className="w-full md:w-3/4 lg:w-2/3 xl:w-1/2 "> */}
+      <div className="w-full">
+        
+        <h1 className="text-3xl font-bold text-gray-800 mb-3">
+          Check In :{" "}
+          <span className="font-medium text-orange-500">{eventName}</span>
         </h1>
         <div>
           <p className="text-gray-700 text-lg mb-4">

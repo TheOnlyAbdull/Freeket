@@ -43,10 +43,10 @@ function App() {
           {/* // Protected Routes */}
           <Route element={<AuthorizedLayout />}>
             <Route path="CreateEvent" element={<CreateEvent />} />
-            <Route path="CheckIn" element={<CheckIn />} />
             <Route path="ManageEvents" element={<ManageEvents />}>
               <Route index element={<EventList />} />
               <Route path="/ManageEvents/Analytics" element={<Analytics />} />
+            <Route path="/ManageEvents/CheckIn" element={<CheckIn />} />
             </Route>
           </Route>
 

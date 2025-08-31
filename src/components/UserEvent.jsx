@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { useEvents } from "../features/events/useEvents";
 import { useUser } from "../features/authentication/useUser";
 import Spinner from "../ui/Spinner";
+import { SiSimpleanalytics } from "react-icons/si";
+import { PiUserCircleCheckThin } from "react-icons/pi";
 
 
 function UserEvent() {
@@ -67,16 +69,31 @@ function UserEvent() {
               </span>
               <span className="ml-3">FREE</span>
             </p>
+            <div className="flex items-center justify-between py-2">
             <Link
               to="/ManageEvents/Analytics"
               state={{ eventName: event.eventName, eventId: event.id, userId: user?.id }}
-              className="flex cursor-pointer items-center font-bold ml-auto text-orange-500 underline"
+              className="flex cursor-pointer items-center font-bold text-orange-500 gap-1 underline"
             >
               <span>
-                <IoMdArrowForward />
+                <SiSimpleanalytics />
               </span>
-              <span>Analytics</span>
+              <span> Analytics</span>
             </Link>
+
+            {/* //only show if event is in the current date */}
+            <Link
+              to="/ManageEvents/CheckIn"
+              state={{ eventName: event.eventName, eventId: event.id, userId: user?.id }}
+              className="flex cursor-pointer items-center font-bold text-orange-500 gap-1 underline"
+            >
+              <span>
+                <PiUserCircleCheckThin />
+              </span>
+              <span> Check-In</span>
+            </Link>
+
+            </div>
           </div>
         </div>
       ))}

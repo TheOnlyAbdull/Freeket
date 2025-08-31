@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { IoMdAdd, IoMdArrowBack } from "react-icons/io";
 import { CgMenuGridO } from "react-icons/cg";
@@ -8,30 +8,28 @@ import { CiLogout, CiMail } from "react-icons/ci";
 import { FaRegUser } from "react-icons/fa6";
 import { useLogout } from "../features/authentication/useLogout";
 import { useUser } from "../features/authentication/useUser";
+import { MdOutlineManageAccounts } from "react-icons/md";
 
 function NavBar() {
   const [showNav, setShowNav] = useState(true);
   const [showDropdown, setShowDropdown] = useState(false);
   const { logOut, isLoading } = useLogout();
-   const { user } = useUser();
+  const { user } = useUser();
 
-
-  
   return (
     <nav className="fixed top-0 left-0 z-10 w-full">
-      <div className="flex justify-between px-4 py-4 shadow-md bg-white ">
+      <div className="flex justify-between md:px-8 px-2 py-4 shadow-md bg-white ">
         <Logo path="/CreateEvent" />
-        <div className="flex items-center gap-4 ">
-          <p
-            onClick={() => setShowNav(!showNav)}
-            className={`flex item-center border rounded-full border-gray-500 p-2.5 ${
-              showNav ? "bg-gray-100" : "bg-white"
-            } cursor-pointer`}
-          >
-            <CgMenuGridO />
+        <div className="flex items-center gap-4 text-orange-500">
+          <p className="flex item-center border rounded-full p-2.5 text-gray-500">
+            <Link to="/ManageEvents">
+              <MdOutlineManageAccounts />
+            </Link>
           </p>
-          <p className="flex item-center border rounded-full p-2.5 text-orange-500">
-            <IoMdAdd />
+          <p className="flex item-center border rounded-full p-2.5">
+            <Link to="/CreateEvent">
+              <IoMdAdd />
+            </Link>
           </p>
           <div
             onClick={() => setShowDropdown(!showDropdown)}
@@ -52,10 +50,9 @@ function NavBar() {
                   </li>
                   <li className=" hover:bg-gray-100  flex items-center gap-1">
                     <CiMail />
-                    {(user?.email?.length > 20)
+                    {user?.email?.length > 20
                       ? user.email.slice(0, 20) + "..."
                       : user?.email || "User"}
-                  
                   </li>
                   <li
                     onClick={logOut}
@@ -63,7 +60,7 @@ function NavBar() {
                       isLoading ? "opacity-50 cursor-not-allowed" : ""
                     }`}
                   >
-                    <CiLogout /> 
+                    <CiLogout />
                     Logout
                   </li>
                 </ul>
@@ -72,7 +69,7 @@ function NavBar() {
           </div>
         </div>
       </div>
-      {showNav && (
+      {/* {showNav && (
         <div className=" px-2 py-4 bg-gray-100 md:p-4">
           <ul className="flex  gap-3 md:gap-5 justify-start  text-gray-700 font-semibold text-sm flex-wrap">
             <NavLink
@@ -119,7 +116,7 @@ function NavBar() {
             </NavLink>
           </ul>
         </div>
-      )}
+      )} */}
     </nav>
   );
 }
