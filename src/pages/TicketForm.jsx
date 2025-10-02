@@ -4,19 +4,17 @@ import Ticket from "../components/Ticket";
 import { useEventRegistration } from "../features/eventRegistration/useEventRegistration";
 
 function TicketForm({ onClose, eventId, eventName, eventDate, eventTime, eventVenue }) {
-  const {register, handleSubmit, reset} = useForm()
-  const {purchaseTicket, isPending} = useEventRegistration();
+  const { register, handleSubmit, reset } = useForm();
+  const { purchaseTicket, isPending } = useEventRegistration();
 
-function onSubmit(data) {
-  //submit data
-  purchaseTicket({...data, eventId, eventName});
-  
-  //reset form AND close modal
-  reset();
-  onClose(false);
-}
+  function onSubmit(data) {
+    //submit data
+    purchaseTicket({ ...data, eventId, eventName, eventDate, eventTime, eventVenue });
 
-
+    //reset form AND close modal
+    reset();
+    onClose(false);
+  }
 
   return (
     <div className="w-full absolute  top-0  z-10">
@@ -39,7 +37,7 @@ function onSubmit(data) {
                   id="first-name"
                   name="first-name"
                   required
-                  {...register('firstName', {required: true})}
+                  {...register("firstName", { required: true })}
                 />
               </div>
               <div className="w-6/12">
@@ -51,7 +49,7 @@ function onSubmit(data) {
                   id="last-name"
                   name="last-name"
                   required
-                  {...register('lastName', {required:true})}
+                  {...register("lastName", { required: true })}
                 />
               </div>
             </div>
@@ -64,7 +62,7 @@ function onSubmit(data) {
                 id="phone-number"
                 name="phone-number"
                 required
-                {...register('phoneNumber', {required:true})}
+                {...register("phoneNumber", { required: true })}
               />
             </div>
             <div className="mb-8">
@@ -76,13 +74,15 @@ function onSubmit(data) {
                 id="email"
                 name="email"
                 required
-                {...register('email', {required:true})}
+                {...register("email", { required: true })}
               />
             </div>
-            <ButtonPrimary className="py-4" type='submit'>Book a Slot</ButtonPrimary>
+            <ButtonPrimary className="py-4" type="submit">
+              Book a Slot
+            </ButtonPrimary>
           </form>
         </div>
-        <Ticket/>
+        <Ticket  eventName={eventName} eventDate={eventDate} eventTime={eventTime} eventVenue={eventVenue}/>
       </div>
     </div>
   );

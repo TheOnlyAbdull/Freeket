@@ -1,5 +1,5 @@
 import { FaLocationDot, FaRegClock } from "react-icons/fa6";
-function Ticket() {
+function Ticket({ eventName, eventDate, eventTime, eventVenue }) {
   return (
     <div className="bg-gray-50 p-8 px-4 rounded-lg md:w-6/12 shadow-md">
       <h1 className="text-2xl font-bold mb-4 text-grey-500">Your Ticket</h1>
@@ -10,20 +10,20 @@ function Ticket() {
             <span>
               <FaRegClock className="inline" />
             </span>
-            <span className="ml-3 ">Fri, May 09 2025, 12:00pm</span>
+            <span className="ml-3 ">{eventDate} : {eventTime}</span>
           </p>
           <p className="flex items-center">
             <span>
               <FaLocationDot className="inline" />
             </span>
-            <span className="ml-3">Virtual</span>
+            <span className="ml-3">{eventVenue}</span>
           </p>
         </div>
       </div>
       <div className="py-2 border-t-1 border-orange-500">
         <p className=" font-bold  text-grey-500">summary</p>
         <p className="text-gray-900 text-sm my-2 flex gap-1">
-          <span className="uppercase">web 3 confrence</span>
+          <span className="uppercase">{eventName}</span>
           <span>x 1</span>
         </p>
       </div>
