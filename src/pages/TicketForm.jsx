@@ -3,7 +3,7 @@ import ButtonPrimary from "../components/ButtonPrimary";
 import Ticket from "../components/Ticket";
 import { useEventRegistration } from "../features/eventRegistration/useEventRegistration";
 
-function TicketForm({ onClose, eventId, eventName }) {
+function TicketForm({ onClose, eventId, eventName, eventDate, eventTime, eventVenue }) {
   const {register, handleSubmit, reset} = useForm()
   const {purchaseTicket, isPending} = useEventRegistration();
 

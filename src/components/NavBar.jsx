@@ -54,6 +54,8 @@ function NavBar() {
                       ? user.email.slice(0, 20) + "..."
                       : user?.email || "User"}
                   </li>
+
+
                   <li
                     onClick={logOut}
                     className={` hover:bg-gray-100 cursor-pointer flex items-center gap-1} ${

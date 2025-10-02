@@ -53,7 +53,15 @@ function App() {
           <Route path="Account" element={<Account />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
-        <Toaster position="top-right" />
+        <Toaster  position="top-center"
+        gutter={40} // Increase gutter space between toasts
+        toastOptions={{
+          style: {
+            margin: "auto",
+            minWidth: "300px",
+            fontSize: "1rem",
+          },
+        }} />
       </BrowserRouter>
     </QueryClientProvider>
   );

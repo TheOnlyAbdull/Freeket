@@ -58,7 +58,7 @@ function Event() {
                 <span>
                   <FaRegClock className="inline" />
                 </span>
-                <span className="ml-3">{event.eventDate}, 12:00pm</span>
+                <span className="ml-3">{event.eventDate}, {event.startTime}</span>
               </p>
               <p className="flex items-center">
                 <span>
@@ -110,7 +110,7 @@ function Event() {
           </div>
         </div>
       </div>
-      {openTicketForm && <TicketForm onClose={setOpenTicketForm} eventName={event.eventName} eventId={event.id} />}
+    {openTicketForm && <TicketForm onClose={setOpenTicketForm} eventName={event.eventName} eventId={event.id} eventDate={event.eventDate} eventTime={event.startTime} eventVenue={event.eventAddress} />}
       <Footer />
     </div>
   );
