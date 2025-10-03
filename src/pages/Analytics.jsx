@@ -16,7 +16,7 @@ function Analytics() {
   console.log(data);
 
   const registeredUsers = data?.length || 0;
-  const availableSlots = 100 - registeredUsers; //remove
+  const availableSlots = 300 - registeredUsers; //remove
   const checkedInAttendees =
     data?.filter((attendee) => attendee.status == "checked").length || 0;
 

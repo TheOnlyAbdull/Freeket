@@ -3,8 +3,8 @@ import { loginUser } from "../../services/apiAuth";
 import { useLogin } from "./useLogin";
 
 function Login({ setCreateAccount }) {
-  const [email, setEmail] = useState("abdullahisalaudeen65@gmail.com");
-  const [password, setPassword] = useState("abdullahi");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
     const {login, isLoading} = useLogin();
   function handleLogin(e) {
