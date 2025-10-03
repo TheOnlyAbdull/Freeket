@@ -75,8 +75,9 @@ function Event() {
               <ButtonPrimary
                 onClick={() => setOpenTicketForm(true)}
                 className="py-4 "
+                disabled={event.soldOut}
               >
-                Get Ticket
+               {event.soldOut ? "Sold Out" : "Get Ticket"}
               </ButtonPrimary>
             </div>
           </div>

@@ -76,18 +76,18 @@ function EventCard() {
                     <BsTicketPerforatedFill className="inline" />
                   </span>
                   <span className="ml-3">
-                    {event.ticketQuantity >= 1 ? "FREE" : "SOLD OUT"}
+                    {event.soldOut ? "FREE" : "SOLD OUT"}
                   </span>
                 </p>
                 <Link
-                  to={event.ticketQuantity >= 1 ? `/event/${event.eventName}` : "#"}
-                  
+                  to={event.soldOut ? "#" : `/event/${event.eventName}`}
+                
                 >
                   <ButtonPrimary
                     className="px-4 py-2 mt-2 text-sm "
-                    disabled={event.ticketQuantity < 1}
+                    disabled={event.soldOut}
                   >
-                    {event.ticketQuantity < 1 ? "Sold Out" : "Get Ticket"}
+                    {event.soldOut ? "Sold Out" : "Get Ticket"}
                   </ButtonPrimary>
                 </Link>
               </div>
