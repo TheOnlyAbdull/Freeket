@@ -1,5 +1,5 @@
 import { FaLocationDot, FaRegClock } from "react-icons/fa6";
-function Ticket({ eventName, eventDate, eventTime, eventVenue }) {
+function Ticket({ eventName, eventDate, eventTime, eventVenue, payment }) {
   return (
     <div className="bg-gray-50 p-8 px-4 rounded-lg md:w-6/12 shadow-md">
       <h1 className="text-2xl font-bold mb-4 text-grey-500">Your Ticket</h1>
@@ -23,7 +23,17 @@ function Ticket({ eventName, eventDate, eventTime, eventVenue }) {
       <div className="py-2 border-t-1 border-orange-500">
         <p className=" font-bold  text-grey-500">summary</p>
         <p className="text-gray-900 text-sm my-2 flex gap-1">
-          <span className="uppercase">{eventName}</span>
+          <span className="uppercase font-bold">
+            {payment === "FREE" ? (
+              <span className="text-orange-400">{eventName}</span>
+            ) : (
+              <span className="text-red-500">
+                Disclaimer: {eventName} is a Paid Event, your ticket will only be valid after payment is confirmed via mail.
+                
+              </span>
+            )}
+          </span>
+
           <span>x 1</span>
         </p>
       </div>

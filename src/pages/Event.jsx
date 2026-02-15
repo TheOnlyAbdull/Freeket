@@ -70,7 +70,7 @@ function Event() {
                 <span>
                   <BsTicketPerforatedFill className="inline" />
                 </span>
-                <span className="ml-3">FREE</span>
+                <span className="ml-3">{event.payment === "FREE" ? "FREE" : `₦${event.payment}`}</span>
               </p>
               <ButtonPrimary
                 onClick={() => setOpenTicketForm(true)}
@@ -111,7 +111,7 @@ function Event() {
           </div>
         </div>
       </div>
-    {openTicketForm && <TicketForm onClose={setOpenTicketForm} eventName={event.eventName} eventId={event.id} eventDate={event.eventDate} eventTime={event.startTime} eventVenue={event.eventAddress} />}
+    {openTicketForm && <TicketForm onClose={setOpenTicketForm} eventName={event.eventName} eventId={event.id} payment={event.payment} eventDate={event.eventDate} eventTime={event.startTime} eventVenue={event.eventAddress} />}
       <Footer />
     </div>
   );

@@ -3,13 +3,13 @@ import ButtonPrimary from "../components/ButtonPrimary";
 import Ticket from "../components/Ticket";
 import { useEventRegistration } from "../features/eventRegistration/useEventRegistration";
 
-function TicketForm({ onClose, eventId, eventName, eventDate, eventTime, eventVenue }) {
+function TicketForm({ onClose, eventId, eventName, eventDate, eventTime, eventVenue, payment }) {
   const { register, handleSubmit, reset } = useForm();
   const { purchaseTicket, isPending } = useEventRegistration();
 
   function onSubmit(data) {
     //submit data
-    purchaseTicket({ ...data, eventId, eventName, eventDate, eventTime, eventVenue });
+    purchaseTicket({ ...data, eventId, eventName, eventDate, eventTime, eventVenue, payment });
 
     //reset form AND close modal
     reset();
@@ -82,7 +82,7 @@ function TicketForm({ onClose, eventId, eventName, eventDate, eventTime, eventVe
             </ButtonPrimary>
           </form>
         </div>
-        <Ticket  eventName={eventName} eventDate={eventDate} eventTime={eventTime} eventVenue={eventVenue}/>
+        <Ticket  eventName={eventName} payment={payment} eventDate={eventDate} eventTime={eventTime} eventVenue={eventVenue}/>
       </div>
     </div>
   );

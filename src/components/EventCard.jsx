@@ -76,7 +76,7 @@ function EventCard() {
                     <BsTicketPerforatedFill className="inline" />
                   </span>
                   <span className="ml-3">
-                    {event.soldOut ? "SOLD OUT" : "FREE"}
+                    {event.soldOut ? "SOLD OUT" : `₦${event.payment}`}
                   </span>
                 </p>
                 <Link
